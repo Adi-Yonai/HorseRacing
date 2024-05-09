@@ -15,8 +15,6 @@ scatter_plot = stats[['form', metric]].groupby('form').mean()*100
 
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 
-st.write(scatter_plot)
-
 chart = (
    alt.Chart(scatter_plot.reset_index())
    .mark_circle()
