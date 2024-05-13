@@ -4,7 +4,10 @@ import numpy as np
 import altair as alt
 from util import load_stats
 
-stats = load_stats()
+if 'stats' not in st.session_state:
+    st.session_state['stats'] = load_stats()
+
+stats = st.session_state['stats']
 
 st.write(stats['run_style'].min())
 st.write(stats['run_style'].max())

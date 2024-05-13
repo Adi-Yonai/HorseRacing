@@ -4,7 +4,10 @@ import numpy as np
 import altair as alt
 from util import load_stats
 
-stats = load_stats()
+if 'stats' not in st.session_state:
+    st.session_state['stats'] = load_stats()
+
+stats = st.session_state['stats']
 
 metric = st.selectbox(
     "Choose Success Metric", ("won", "top_3", "result"), format_func =lambda x: {"won": "Win Rate", "top_3": "Place Rate (Top 3)", "result": "Avg Position"}.get(x)
