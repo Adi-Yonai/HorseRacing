@@ -9,8 +9,7 @@ if 'stats' not in st.session_state:
 
 stats = st.session_state['stats']
 
-st.write(stats['run_style'].min())
-st.write(stats['run_style'].max())
+placeholder = st.empty()
 
 run_score = st.slider('Style Score Range', -13.0, 13.0, (-5.0, 5.0), 0.1)
 #st.write(run_score)
@@ -52,4 +51,4 @@ chart = (
 ).interactive()
 )
 
-st.altair_chart(chart, use_container_width=True)
+placeholder.altair_chart(chart, use_container_width=True)
