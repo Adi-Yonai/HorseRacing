@@ -23,6 +23,10 @@ def jockey_runs():
     stats = st.session_state['stats']
     track = st.session_state['jr-track']
     strict = None
+
+    st.title('Jockey Run Numbers')
+    st.write('Check the Jockeys with the most runs for an individual race or overall.')
+    st.write('Strict mode will only check full races.')
     col1, col2 = st.columns(2)
     
     with col1:
@@ -70,7 +74,9 @@ def jockey_runs():
         df = stats['jockey_id'].value_counts()[0:st.session_state['jockey_count']]
     if track:
         st.title(track_formatter(track))
-    else: st.title('All Tracks')
+    else:
+        with col2:
+            st.title('All Tracks')
     if not df.empty:
         with col2:
             st.write(df)

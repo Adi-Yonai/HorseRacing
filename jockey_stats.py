@@ -17,7 +17,10 @@ def jockey_stats():
     stats = st.session_state['stats']
     trackNames = list(map(track_formatter, st.session_state['js-tracks']))
 
-    placeholder = st.empty()
+    st.title('Top Performing Jockeys')
+    st.write('Check the top performing Jockeys for an individual race or overall.')
+    st.write('Strict mode will only check full races.')
+    placeholder = st.container()
     
     metric = st.selectbox(
         "Choose Success Metric", ("won", "top_3", "result"), format_func =lambda x: {"won": "Win Rate", "top_3": "Place Rate (Top 3)", "result": "Avg Position"}.get(x)
@@ -64,7 +67,7 @@ def jockey_stats():
             st.session_state['jockey_id'].sort()
     
     with col2:
-        butt_list(st.session_state['jockey_id'], str)
+        butt_list(st.session_state['jockey_id'], str, False)
 
 
     

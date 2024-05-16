@@ -6,8 +6,11 @@ from util import load_stats
 
 if 'stats' not in st.session_state:
     st.session_state['stats'] = load_stats()
-
 stats = st.session_state['stats']
+
+st.title('Perfomance Based on Draw')
+st.write('Pick specific races or keep empty for overall performance.')
+placeholder = st.container()
 
 venue = st.multiselect(
     "Choose Venue", (('ST',14),('HV', 12)), format_func =lambda x: {('ST',14): "Sha Tin", ('HV', 12): "Happy Valley"}.get(x)
@@ -41,4 +44,5 @@ chart = (
 ).interactive()
 )
 
-st.altair_chart(chart, use_container_width=True)
+with placeholder:
+    st.altair_chart(chart, use_container_width=True)

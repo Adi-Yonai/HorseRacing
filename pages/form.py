@@ -9,6 +9,7 @@ if 'stats' not in st.session_state:
 
 stats = st.session_state['stats']
 
+st.title('Performance by Form Score')
 metric = st.selectbox(
     "Choose Success Metric", ("won", "top_3", "result"), format_func =lambda x: {"won": "Win Rate", "top_3": "Place Rate (Top 3)", "result": "Avg Position"}.get(x)
     )

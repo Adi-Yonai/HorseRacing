@@ -9,7 +9,9 @@ if 'stats' not in st.session_state:
 
 stats = st.session_state['stats']
 
-placeholder = st.empty()
+st.title('Performance by Running Style')
+st.write('Pick specific races or keep empty for overall performance.')
+placeholder = st.container()
 
 run_score = st.slider('Style Score Range', -13.0, 13.0, (-5.0, 5.0), 0.1)
 #st.write(run_score)
